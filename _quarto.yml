@@ -8,6 +8,11 @@ website:
     left:
       - href: index.qmd
         text: Home
+<<<<<<< HEAD
+      - href: hw1.qmd
+        text: HW1
+=======
+>>>>>>> df52f0c67ba0b50b301b34bf17b533dc26edd261
 
 format:
   html:

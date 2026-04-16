@@ -5,5 +5,15 @@
     "title": "Chengwei Zhang",
     "section": "",
     "text": "Welcome to my website."
+<<<<<<< HEAD
+  },
+  {
+    "objectID": "hw1.html",
+    "href": "hw1.html",
+    "title": "HW1: A/B Testing and Simulating Key Ideas in Frequentist Statistical Inference",
+    "section": "",
+    "text": "This is my HW1 page."
+=======
+>>>>>>> df52f0c67ba0b50b301b34bf17b533dc26edd261
   }
 ]
