@@ -8,11 +8,9 @@ format: html
 
 ## Profile
 
-![](files/profile.jpg){width="75%" fig-alt="Profile image"}
+![](files/profile.jpg){width="78%" fig-alt="Profile image"}
 
-## Chengwei Zhang
-
-**MSBA student at UC San Diego**
+[Email](mailto:chz147@ucsd.edu) | [LinkedIn](https://www.linkedin.com/in/chengwei-zhang-560180379)
 
 :::
 
