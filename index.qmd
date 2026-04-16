@@ -1,5 +1,47 @@
 ---
 title: "Chengwei Zhang"
+format: html
 ---
 
-Welcome to my website.
+::: {.columns}
+::: {.column width="38%"}
+
+## Profile
+
+![](files/profile.jpg){width="75%" fig-alt="Profile image"}
+
+## Chengwei Zhang
+
+**MSBA student at UC San Diego**
+
+:::
+
+::: {.column width="62%"}
+
+## Current
+
+- **MSBA Student** | University of California, San Diego
+
+---
+
+## Education
+
+- **MSBA** | University of California, San Diego  
+- **BA in Mathematics** | University of California, Santa Barbara
+
+---
+
+## Interests
+
+- Statistics  
+- Data Analysis  
+- Business Analytics
+
+---
+
+## About this site
+
+I use this website to organize and share my coursework, homework assignments, and class projects.
+
+:::
+:::

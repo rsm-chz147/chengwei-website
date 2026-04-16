@@ -1,10 +1,10 @@
 [
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Chengwei Zhang",
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
     "section": "",
-    "text": "Welcome to my website."
+    "text": "My name is Chengwei Zhang.\nI completed my bachelor’s degree in Mathematics at the University of California, Santa Barbara, and I am currently pursuing my MSBA degree at the University of California, San Diego.\nMy academic interests are in statistics, data analysis, and business analytics. I especially enjoy work that combines quantitative reasoning with practical applications.\nI created this website as a place to organize and share my coursework, homework assignments, and class projects. As I continue through the program, I plan to keep updating this site with more course-related work."
   },
   {
     "objectID": "hw1.html",
@@ -75,5 +75,47 @@
     "title": "A/B Testing a Call to Action",
     "section": "The Problem with Peeking",
     "text": "The Problem with Peeking\nOne easy mistake in A/B testing is to keep checking the results as new data come in and then stop as soon as the p-value drops below 0.05. That sounds harmless at first, but it causes a real problem for frequentist inference. A single test at the 5% level only has a 5% false positive rate when the test is done once as planned. If I keep testing the same experiment over and over while the data are still coming in, every extra peek gives me another chance to reject the null just because of luck.\nTo show this, I simulate a world where the null hypothesis is actually true: both CTAs have sign-up probability 0.20, so there is no treatment effect. In each simulated experiment, I generate 1,000 observations per group and then run a hypothesis test after every 100 observations. If any one of those 10 tests is significant at the 0.05 level, I count the experiment as a false positive. Repeating this many times gives an empirical estimate of how much peeking inflates the Type I error rate.\n\n\n\n\n\n\n\n\n\nProcedure\nFalse positive rate\n\n\n\n\n0\nSingle planned test\n0.0500\n\n\n1\nPeeking every 100 observations\n0.1955\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nThe simulated false positive rate under peeking is much larger than the usual 5% rate from a single planned test. So even when there is truly no difference between the two CTAs, repeated checking makes it much easier to convince yourself that you found a winner. In practice, that is why stopping rules need to be decided ahead of time. Otherwise, the usual p-values and confidence intervals no longer mean quite what we want them to mean."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Chengwei Zhang",
+    "section": "",
+    "text": "MSBA student at UC San Diego\n\n\n\n\n\nMSBA Student | University of California, San Diego\n\n\n\n\n\n\nMSBA | University of California, San Diego\n\nBA in Mathematics | University of California, Santa Barbara\n\n\n\n\n\n\nStatistics\n\nData Analysis\n\nBusiness Analytics\n\n\n\n\n\nI use this website to organize and share my coursework, homework assignments, and class projects."
+  },
+  {
+    "objectID": "index.html#chengwei-zhang",
+    "href": "index.html#chengwei-zhang",
+    "title": "Chengwei Zhang",
+    "section": "",
+    "text": "MSBA student at UC San Diego"
+  },
+  {
+    "objectID": "index.html#current",
+    "href": "index.html#current",
+    "title": "Chengwei Zhang",
+    "section": "",
+    "text": "MSBA Student | University of California, San Diego"
+  },
+  {
+    "objectID": "index.html#education",
+    "href": "index.html#education",
+    "title": "Chengwei Zhang",
+    "section": "",
+    "text": "MSBA | University of California, San Diego\n\nBA in Mathematics | University of California, Santa Barbara"
+  },
+  {
+    "objectID": "index.html#interests",
+    "href": "index.html#interests",
+    "title": "Chengwei Zhang",
+    "section": "",
+    "text": "Statistics\n\nData Analysis\n\nBusiness Analytics"
+  },
+  {
+    "objectID": "index.html#about-this-site",
+    "href": "index.html#about-this-site",
+    "title": "Chengwei Zhang",
+    "section": "",
+    "text": "I use this website to organize and share my coursework, homework assignments, and class projects."
   }
 ]

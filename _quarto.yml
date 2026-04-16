@@ -5,13 +5,17 @@ project:
 website:
   title: "Chengwei Zhang"
   navbar:
+    title-href: about.qmd
     left:
       - href: index.qmd
         text: Home
+      - href: about.qmd
+        text: About
       - href: hw1.qmd
         text: HW1
 
 format:
   html:
     theme: cosmo
-    toc: true
+    toc: false
+    css: styles.css
