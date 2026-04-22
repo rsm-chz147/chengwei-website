@@ -2,7 +2,7 @@
 title: "HW2: Replication of Card and Krueger (1994)"
 subtitle: "Minimum Wages and Employment: A Case Study of the Fast-Food Industry in New Jersey and Pennsylvania"
 author: "Chengwei Zhang"
-date: "April 15, 2026"
+date: "April 22, 2026"
 format:
   html:
     toc: true
