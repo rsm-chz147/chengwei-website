@@ -330,3 +330,7 @@ plt.show()
 ```
 
 The simulated false positive rate under peeking is much larger than the usual 5% rate from a single planned test. So even when there is truly no difference between the two CTAs, repeated checking makes it much easier to convince yourself that you found a winner. In practice, that is why stopping rules need to be decided ahead of time. Otherwise, the usual p-values and confidence intervals no longer mean quite what we want them to mean.
+
+## Conclusion
+
+Overall, this simulation shows how an A/B test can be analyzed using several core ideas from frequentist statistics. The Law of Large Numbers explains why estimates become more stable as the sample size grows, while the Central Limit Theorem justifies using an approximately Normal sampling distribution for large samples. The bootstrap provides a practical way to estimate uncertainty, and the regression version shows that the same comparison can be framed as a simple treatment-effect model. Finally, the peeking simulation highlights why researchers should decide their analysis plan before looking at results repeatedly.
