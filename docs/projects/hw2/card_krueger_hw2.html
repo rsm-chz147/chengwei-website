@@ -215,7 +215,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="a-small-replication-of-table-2" class="level3">
 <h3 class="anchored" data-anchor-id="a-small-replication-of-table-2">A small replication of Table 2</h3>
 <p>Before turning to the main employment result, it is useful to look at a few descriptive statistics. The table below summarizes average employment, starting wages, and meal prices in each state before and after the policy change.</p>
-<div id="292fbbce" class="cell" data-execution_count="2">
+<div id="f36a5ad7" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>Show code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>table2_subset <span class="op">=</span> pd.DataFrame({</span>
@@ -295,7 +295,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="replication-of-table-3" class="level3">
 <h3 class="anchored" data-anchor-id="replication-of-table-3">Replication of Table 3</h3>
 <p>I now replicate the main comparison from Table 3. I calculate average employment in Pennsylvania and New Jersey in wave 1, wave 2, and the change over time.</p>
-<div id="7342855f" class="cell" data-execution_count="3">
+<div id="1927ad40" class="cell" data-execution_count="3">
 <details class="code-fold">
 <summary>Show code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>grouped <span class="op">=</span> df.groupby(<span class="st">"NJ"</span>)[[<span class="st">"EMPTOT"</span>, <span class="st">"EMPTOT2"</span>, <span class="st">"DEMP"</span>]].mean()</span>
@@ -361,7 +361,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="something-additional" class="level2">
 <h2 class="anchored" data-anchor-id="something-additional">Something Additional</h2>
 <p>As an additional analysis, I replicate Table 4, column (i). This is a regression of the change in employment on a New Jersey dummy. Following the SAS file, I use the subset of stores with valid employment changes and valid wage information across waves, or stores that were permanently closed in wave 2.</p>
-<div id="eb626ade" class="cell" data-execution_count="4">
+<div id="afa0ba1a" class="cell" data-execution_count="4">
 <details class="code-fold">
 <summary>Show code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>c1 <span class="op">=</span> df[</span>
@@ -418,7 +418,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>The coefficient on the New Jersey dummy is about 2.326. This is the regression version of the simple policy effect: it measures how employment changed in New Jersey relative to Pennsylvania. The estimate is positive, which again means that employment outcomes were better in New Jersey than in Pennsylvania after the minimum wage increase. The standard error is about 1.192, so the estimate is only marginally significant, but the direction of the effect is still the main point. It clearly does not support a negative employment effect in this sample.</p>
 <p>This regression is helpful because it shows that the main conclusion is not coming only from a visual comparison of group means. Even in a formal regression setup, the coefficient still points in the same direction. That makes the result more convincing and shows that the descriptive table and the regression evidence are consistent with each other.</p>
 <p>To make the same result easier to see, I also present it graphically.</p>
-<div id="ab3ed426" class="cell" data-execution_count="5">
+<div id="400a27f7" class="cell" data-execution_count="5">
 <details class="code-fold">
 <summary>Show code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>plot_df <span class="op">=</span> pd.DataFrame({</span>

@@ -9,7 +9,7 @@
 <meta name="author" content="Chengwei Zhang">
 <meta name="dcterms.date" content="2026-05-17">
 
-<title>Poisson Regression and Maximum Likelihood Estimation – Chengwei Zhang</title>
+<title>HW3: Poisson Regression and Maximum Likelihood Estimation – Chengwei Zhang</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -200,7 +200,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Poisson Regression and Maximum Likelihood Estimation</h1>
+<h1 class="title">HW3: Poisson Regression and Maximum Likelihood Estimation</h1>
 <p class="subtitle lead">A Case Study of Blueprinty’s Software and Patent Awards</p>
 </div>
 
@@ -362,24 +362,24 @@ window.Quarto = {
 </details>
 <div id="read-data" class="cell-output cell-output-display">
 <style type="text/css">
-#T_e9d30 caption {
+#T_b2ddd caption {
   caption-side: top;
   text-align: left;
   font-weight: 700;
   font-size: 1rem;
   margin-bottom: 0.4rem;
 }
-#T_e9d30 th {
+#T_b2ddd th {
   background-color: #f3f4f6;
   text-align: left;
   padding: 6px 8px;
   border-bottom: 1px solid #d1d5db;
 }
-#T_e9d30 td {
+#T_b2ddd td {
   padding: 6px 8px;
   border-bottom: 1px solid #e5e7eb;
 }
-#T_e9d30 table {
+#T_b2ddd table {
   border-collapse: collapse;
   width: 100%;
   font-family: Arial, sans-serif;
@@ -387,57 +387,57 @@ window.Quarto = {
 }
 </style>
 
-<div id="T_e9d30" class="quarto-float quarto-figure quarto-figure-center anchored" data-quarto-postprocess="true">
+<div id="T_b2ddd" class="quarto-float quarto-figure quarto-figure-center anchored" data-quarto-postprocess="true">
 <figure class="quarto-float quarto-float-tbl figure">
-<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="T_e9d30-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="T_b2ddd-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Table&nbsp;1: First five rows of the Blueprinty dataset
 </figcaption>
-<div aria-describedby="T_e9d30-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<table id="T_e9d30" class="caption-top table table-sm table-striped small">
+<div aria-describedby="T_b2ddd-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table id="T_b2ddd" class="caption-top table table-sm table-striped small">
 <thead>
 <tr class="header">
-<th id="T_e9d30_level0_col0" class="col_heading level0 col0" data-quarto-table-cell-role="th">patents</th>
-<th id="T_e9d30_level0_col1" class="col_heading level0 col1" data-quarto-table-cell-role="th">region</th>
-<th id="T_e9d30_level0_col2" class="col_heading level0 col2" data-quarto-table-cell-role="th">age</th>
-<th id="T_e9d30_level0_col3" class="col_heading level0 col3" data-quarto-table-cell-role="th">iscustomer</th>
-<th id="T_e9d30_level0_col4" class="col_heading level0 col4" data-quarto-table-cell-role="th">customer_status</th>
+<th id="T_b2ddd_level0_col0" class="col_heading level0 col0" data-quarto-table-cell-role="th">patents</th>
+<th id="T_b2ddd_level0_col1" class="col_heading level0 col1" data-quarto-table-cell-role="th">region</th>
+<th id="T_b2ddd_level0_col2" class="col_heading level0 col2" data-quarto-table-cell-role="th">age</th>
+<th id="T_b2ddd_level0_col3" class="col_heading level0 col3" data-quarto-table-cell-role="th">iscustomer</th>
+<th id="T_b2ddd_level0_col4" class="col_heading level0 col4" data-quarto-table-cell-role="th">customer_status</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td id="T_e9d30_row0_col0" class="data row0 col0">0.0</td>
-<td id="T_e9d30_row0_col1" class="data row0 col1">Midwest</td>
-<td id="T_e9d30_row0_col2" class="data row0 col2">32.5</td>
-<td id="T_e9d30_row0_col3" class="data row0 col3">0.0</td>
-<td id="T_e9d30_row0_col4" class="data row0 col4">Non-customer</td>
+<td id="T_b2ddd_row0_col0" class="data row0 col0">0.0</td>
+<td id="T_b2ddd_row0_col1" class="data row0 col1">Midwest</td>
+<td id="T_b2ddd_row0_col2" class="data row0 col2">32.5</td>
+<td id="T_b2ddd_row0_col3" class="data row0 col3">0.0</td>
+<td id="T_b2ddd_row0_col4" class="data row0 col4">Non-customer</td>
 </tr>
 <tr class="even">
-<td id="T_e9d30_row1_col0" class="data row1 col0">3.0</td>
-<td id="T_e9d30_row1_col1" class="data row1 col1">Southwest</td>
-<td id="T_e9d30_row1_col2" class="data row1 col2">37.5</td>
-<td id="T_e9d30_row1_col3" class="data row1 col3">0.0</td>
-<td id="T_e9d30_row1_col4" class="data row1 col4">Non-customer</td>
+<td id="T_b2ddd_row1_col0" class="data row1 col0">3.0</td>
+<td id="T_b2ddd_row1_col1" class="data row1 col1">Southwest</td>
+<td id="T_b2ddd_row1_col2" class="data row1 col2">37.5</td>
+<td id="T_b2ddd_row1_col3" class="data row1 col3">0.0</td>
+<td id="T_b2ddd_row1_col4" class="data row1 col4">Non-customer</td>
 </tr>
 <tr class="odd">
-<td id="T_e9d30_row2_col0" class="data row2 col0">4.0</td>
-<td id="T_e9d30_row2_col1" class="data row2 col1">Northwest</td>
-<td id="T_e9d30_row2_col2" class="data row2 col2">27.0</td>
-<td id="T_e9d30_row2_col3" class="data row2 col3">1.0</td>
-<td id="T_e9d30_row2_col4" class="data row2 col4">Customer</td>
+<td id="T_b2ddd_row2_col0" class="data row2 col0">4.0</td>
+<td id="T_b2ddd_row2_col1" class="data row2 col1">Northwest</td>
+<td id="T_b2ddd_row2_col2" class="data row2 col2">27.0</td>
+<td id="T_b2ddd_row2_col3" class="data row2 col3">1.0</td>
+<td id="T_b2ddd_row2_col4" class="data row2 col4">Customer</td>
 </tr>
 <tr class="even">
-<td id="T_e9d30_row3_col0" class="data row3 col0">3.0</td>
-<td id="T_e9d30_row3_col1" class="data row3 col1">Northeast</td>
-<td id="T_e9d30_row3_col2" class="data row3 col2">24.5</td>
-<td id="T_e9d30_row3_col3" class="data row3 col3">0.0</td>
-<td id="T_e9d30_row3_col4" class="data row3 col4">Non-customer</td>
+<td id="T_b2ddd_row3_col0" class="data row3 col0">3.0</td>
+<td id="T_b2ddd_row3_col1" class="data row3 col1">Northeast</td>
+<td id="T_b2ddd_row3_col2" class="data row3 col2">24.5</td>
+<td id="T_b2ddd_row3_col3" class="data row3 col3">0.0</td>
+<td id="T_b2ddd_row3_col4" class="data row3 col4">Non-customer</td>
 </tr>
 <tr class="odd">
-<td id="T_e9d30_row4_col0" class="data row4 col0">3.0</td>
-<td id="T_e9d30_row4_col1" class="data row4 col1">Southwest</td>
-<td id="T_e9d30_row4_col2" class="data row4 col2">37.0</td>
-<td id="T_e9d30_row4_col3" class="data row4 col3">0.0</td>
-<td id="T_e9d30_row4_col4" class="data row4 col4">Non-customer</td>
+<td id="T_b2ddd_row4_col0" class="data row4 col0">3.0</td>
+<td id="T_b2ddd_row4_col1" class="data row4 col1">Southwest</td>
+<td id="T_b2ddd_row4_col2" class="data row4 col2">37.0</td>
+<td id="T_b2ddd_row4_col3" class="data row4 col3">0.0</td>
+<td id="T_b2ddd_row4_col4" class="data row4 col4">Non-customer</td>
 </tr>
 </tbody>
 </table>
@@ -476,24 +476,24 @@ Table&nbsp;1: First five rows of the Blueprinty dataset
 </details>
 <div id="patent-means" class="cell-output cell-output-display">
 <style type="text/css">
-#T_a244b caption {
+#T_d40b1 caption {
   caption-side: top;
   text-align: left;
   font-weight: 700;
   font-size: 1rem;
   margin-bottom: 0.4rem;
 }
-#T_a244b th {
+#T_d40b1 th {
   background-color: #f3f4f6;
   text-align: left;
   padding: 6px 8px;
   border-bottom: 1px solid #d1d5db;
 }
-#T_a244b td {
+#T_d40b1 td {
   padding: 6px 8px;
   border-bottom: 1px solid #e5e7eb;
 }
-#T_a244b table {
+#T_d40b1 table {
   border-collapse: collapse;
   width: 100%;
   font-family: Arial, sans-serif;
@@ -501,33 +501,33 @@ Table&nbsp;1: First five rows of the Blueprinty dataset
 }
 </style>
 
-<div id="T_a244b" class="quarto-float quarto-figure quarto-figure-center anchored" data-quarto-postprocess="true">
+<div id="T_d40b1" class="quarto-float quarto-figure quarto-figure-center anchored" data-quarto-postprocess="true">
 <figure class="quarto-float quarto-float-tbl figure">
-<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="T_a244b-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="T_d40b1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Table&nbsp;2: Patent counts by customer status
 </figcaption>
-<div aria-describedby="T_a244b-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<table id="T_a244b" class="caption-top table table-sm table-striped small">
+<div aria-describedby="T_d40b1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table id="T_d40b1" class="caption-top table table-sm table-striped small">
 <thead>
 <tr class="header">
-<th id="T_a244b_level0_col0" class="col_heading level0 col0" data-quarto-table-cell-role="th">Status</th>
-<th id="T_a244b_level0_col1" class="col_heading level0 col1" data-quarto-table-cell-role="th">Firms</th>
-<th id="T_a244b_level0_col2" class="col_heading level0 col2" data-quarto-table-cell-role="th">Mean patents</th>
-<th id="T_a244b_level0_col3" class="col_heading level0 col3" data-quarto-table-cell-role="th">SD patents</th>
+<th id="T_d40b1_level0_col0" class="col_heading level0 col0" data-quarto-table-cell-role="th">Status</th>
+<th id="T_d40b1_level0_col1" class="col_heading level0 col1" data-quarto-table-cell-role="th">Firms</th>
+<th id="T_d40b1_level0_col2" class="col_heading level0 col2" data-quarto-table-cell-role="th">Mean patents</th>
+<th id="T_d40b1_level0_col3" class="col_heading level0 col3" data-quarto-table-cell-role="th">SD patents</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td id="T_a244b_row0_col0" class="data row0 col0">Customer</td>
-<td id="T_a244b_row0_col1" class="data row0 col1">481</td>
-<td id="T_a244b_row0_col2" class="data row0 col2">4.13</td>
-<td id="T_a244b_row0_col3" class="data row0 col3">2.55</td>
+<td id="T_d40b1_row0_col0" class="data row0 col0">Customer</td>
+<td id="T_d40b1_row0_col1" class="data row0 col1">481</td>
+<td id="T_d40b1_row0_col2" class="data row0 col2">4.13</td>
+<td id="T_d40b1_row0_col3" class="data row0 col3">2.55</td>
 </tr>
 <tr class="even">
-<td id="T_a244b_row1_col0" class="data row1 col0">Non-customer</td>
-<td id="T_a244b_row1_col1" class="data row1 col1">1019</td>
-<td id="T_a244b_row1_col2" class="data row1 col2">3.47</td>
-<td id="T_a244b_row1_col3" class="data row1 col3">2.23</td>
+<td id="T_d40b1_row1_col0" class="data row1 col0">Non-customer</td>
+<td id="T_d40b1_row1_col1" class="data row1 col1">1019</td>
+<td id="T_d40b1_row1_col2" class="data row1 col2">3.47</td>
+<td id="T_d40b1_row1_col3" class="data row1 col3">2.23</td>
 </tr>
 </tbody>
 </table>
@@ -580,24 +580,24 @@ Table&nbsp;2: Patent counts by customer status
 </details>
 <div id="region-table" class="cell-output cell-output-display">
 <style type="text/css">
-#T_9d4ec caption {
+#T_c9f3e caption {
   caption-side: top;
   text-align: left;
   font-weight: 700;
   font-size: 1rem;
   margin-bottom: 0.4rem;
 }
-#T_9d4ec th {
+#T_c9f3e th {
   background-color: #f3f4f6;
   text-align: left;
   padding: 6px 8px;
   border-bottom: 1px solid #d1d5db;
 }
-#T_9d4ec td {
+#T_c9f3e td {
   padding: 6px 8px;
   border-bottom: 1px solid #e5e7eb;
 }
-#T_9d4ec table {
+#T_c9f3e table {
   border-collapse: collapse;
   width: 100%;
   font-family: Arial, sans-serif;
@@ -605,57 +605,57 @@ Table&nbsp;2: Patent counts by customer status
 }
 </style>
 
-<div id="T_9d4ec" class="quarto-float quarto-figure quarto-figure-center anchored" data-quarto-postprocess="true">
+<div id="T_c9f3e" class="quarto-float quarto-figure quarto-figure-center anchored" data-quarto-postprocess="true">
 <figure class="quarto-float quarto-float-tbl figure">
-<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="T_9d4ec-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="T_c9f3e-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Table&nbsp;3: Regional composition by customer status
 </figcaption>
-<div aria-describedby="T_9d4ec-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<table id="T_9d4ec" class="caption-top table table-sm table-striped small">
+<div aria-describedby="T_c9f3e-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table id="T_c9f3e" class="caption-top table table-sm table-striped small">
 <thead>
 <tr class="header">
-<th id="T_9d4ec_level0_col0" class="col_heading level0 col0" data-quarto-table-cell-role="th">region</th>
-<th id="T_9d4ec_level0_col1" class="col_heading level0 col1" data-quarto-table-cell-role="th">Customer count</th>
-<th id="T_9d4ec_level0_col2" class="col_heading level0 col2" data-quarto-table-cell-role="th">Non-customer count</th>
-<th id="T_9d4ec_level0_col3" class="col_heading level0 col3" data-quarto-table-cell-role="th">Customer share (%)</th>
-<th id="T_9d4ec_level0_col4" class="col_heading level0 col4" data-quarto-table-cell-role="th">Non-customer share (%)</th>
+<th id="T_c9f3e_level0_col0" class="col_heading level0 col0" data-quarto-table-cell-role="th">region</th>
+<th id="T_c9f3e_level0_col1" class="col_heading level0 col1" data-quarto-table-cell-role="th">Customer count</th>
+<th id="T_c9f3e_level0_col2" class="col_heading level0 col2" data-quarto-table-cell-role="th">Non-customer count</th>
+<th id="T_c9f3e_level0_col3" class="col_heading level0 col3" data-quarto-table-cell-role="th">Customer share (%)</th>
+<th id="T_c9f3e_level0_col4" class="col_heading level0 col4" data-quarto-table-cell-role="th">Non-customer share (%)</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td id="T_9d4ec_row0_col0" class="data row0 col0">Midwest</td>
-<td id="T_9d4ec_row0_col1" class="data row0 col1">37</td>
-<td id="T_9d4ec_row0_col2" class="data row0 col2">187</td>
-<td id="T_9d4ec_row0_col3" class="data row0 col3">7.7</td>
-<td id="T_9d4ec_row0_col4" class="data row0 col4">18.4</td>
+<td id="T_c9f3e_row0_col0" class="data row0 col0">Midwest</td>
+<td id="T_c9f3e_row0_col1" class="data row0 col1">37</td>
+<td id="T_c9f3e_row0_col2" class="data row0 col2">187</td>
+<td id="T_c9f3e_row0_col3" class="data row0 col3">7.7</td>
+<td id="T_c9f3e_row0_col4" class="data row0 col4">18.4</td>
 </tr>
 <tr class="even">
-<td id="T_9d4ec_row1_col0" class="data row1 col0">Northeast</td>
-<td id="T_9d4ec_row1_col1" class="data row1 col1">328</td>
-<td id="T_9d4ec_row1_col2" class="data row1 col2">273</td>
-<td id="T_9d4ec_row1_col3" class="data row1 col3">68.2</td>
-<td id="T_9d4ec_row1_col4" class="data row1 col4">26.8</td>
+<td id="T_c9f3e_row1_col0" class="data row1 col0">Northeast</td>
+<td id="T_c9f3e_row1_col1" class="data row1 col1">328</td>
+<td id="T_c9f3e_row1_col2" class="data row1 col2">273</td>
+<td id="T_c9f3e_row1_col3" class="data row1 col3">68.2</td>
+<td id="T_c9f3e_row1_col4" class="data row1 col4">26.8</td>
 </tr>
 <tr class="odd">
-<td id="T_9d4ec_row2_col0" class="data row2 col0">Northwest</td>
-<td id="T_9d4ec_row2_col1" class="data row2 col1">29</td>
-<td id="T_9d4ec_row2_col2" class="data row2 col2">158</td>
-<td id="T_9d4ec_row2_col3" class="data row2 col3">6.0</td>
-<td id="T_9d4ec_row2_col4" class="data row2 col4">15.5</td>
+<td id="T_c9f3e_row2_col0" class="data row2 col0">Northwest</td>
+<td id="T_c9f3e_row2_col1" class="data row2 col1">29</td>
+<td id="T_c9f3e_row2_col2" class="data row2 col2">158</td>
+<td id="T_c9f3e_row2_col3" class="data row2 col3">6.0</td>
+<td id="T_c9f3e_row2_col4" class="data row2 col4">15.5</td>
 </tr>
 <tr class="even">
-<td id="T_9d4ec_row3_col0" class="data row3 col0">South</td>
-<td id="T_9d4ec_row3_col1" class="data row3 col1">35</td>
-<td id="T_9d4ec_row3_col2" class="data row3 col2">156</td>
-<td id="T_9d4ec_row3_col3" class="data row3 col3">7.3</td>
-<td id="T_9d4ec_row3_col4" class="data row3 col4">15.3</td>
+<td id="T_c9f3e_row3_col0" class="data row3 col0">South</td>
+<td id="T_c9f3e_row3_col1" class="data row3 col1">35</td>
+<td id="T_c9f3e_row3_col2" class="data row3 col2">156</td>
+<td id="T_c9f3e_row3_col3" class="data row3 col3">7.3</td>
+<td id="T_c9f3e_row3_col4" class="data row3 col4">15.3</td>
 </tr>
 <tr class="odd">
-<td id="T_9d4ec_row4_col0" class="data row4 col0">Southwest</td>
-<td id="T_9d4ec_row4_col1" class="data row4 col1">52</td>
-<td id="T_9d4ec_row4_col2" class="data row4 col2">245</td>
-<td id="T_9d4ec_row4_col3" class="data row4 col3">10.8</td>
-<td id="T_9d4ec_row4_col4" class="data row4 col4">24.0</td>
+<td id="T_c9f3e_row4_col0" class="data row4 col0">Southwest</td>
+<td id="T_c9f3e_row4_col1" class="data row4 col1">52</td>
+<td id="T_c9f3e_row4_col2" class="data row4 col2">245</td>
+<td id="T_c9f3e_row4_col3" class="data row4 col3">10.8</td>
+<td id="T_c9f3e_row4_col4" class="data row4 col4">24.0</td>
 </tr>
 </tbody>
 </table>
@@ -694,24 +694,24 @@ Table&nbsp;3: Regional composition by customer status
 </details>
 <div id="age-summary" class="cell-output cell-output-display">
 <style type="text/css">
-#T_e5457 caption {
+#T_36d6c caption {
   caption-side: top;
   text-align: left;
   font-weight: 700;
   font-size: 1rem;
   margin-bottom: 0.4rem;
 }
-#T_e5457 th {
+#T_36d6c th {
   background-color: #f3f4f6;
   text-align: left;
   padding: 6px 8px;
   border-bottom: 1px solid #d1d5db;
 }
-#T_e5457 td {
+#T_36d6c td {
   padding: 6px 8px;
   border-bottom: 1px solid #e5e7eb;
 }
-#T_e5457 table {
+#T_36d6c table {
   border-collapse: collapse;
   width: 100%;
   font-family: Arial, sans-serif;
@@ -719,33 +719,33 @@ Table&nbsp;3: Regional composition by customer status
 }
 </style>
 
-<div id="T_e5457" class="quarto-float quarto-figure quarto-figure-center anchored" data-quarto-postprocess="true">
+<div id="T_36d6c" class="quarto-float quarto-figure quarto-figure-center anchored" data-quarto-postprocess="true">
 <figure class="quarto-float quarto-float-tbl figure">
-<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="T_e5457-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="T_36d6c-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Table&nbsp;4: Firm age by customer status
 </figcaption>
-<div aria-describedby="T_e5457-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<table id="T_e5457" class="caption-top table table-sm table-striped small">
+<div aria-describedby="T_36d6c-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table id="T_36d6c" class="caption-top table table-sm table-striped small">
 <thead>
 <tr class="header">
-<th id="T_e5457_level0_col0" class="col_heading level0 col0" data-quarto-table-cell-role="th">Status</th>
-<th id="T_e5457_level0_col1" class="col_heading level0 col1" data-quarto-table-cell-role="th">Mean age</th>
-<th id="T_e5457_level0_col2" class="col_heading level0 col2" data-quarto-table-cell-role="th">Median age</th>
-<th id="T_e5457_level0_col3" class="col_heading level0 col3" data-quarto-table-cell-role="th">SD age</th>
+<th id="T_36d6c_level0_col0" class="col_heading level0 col0" data-quarto-table-cell-role="th">Status</th>
+<th id="T_36d6c_level0_col1" class="col_heading level0 col1" data-quarto-table-cell-role="th">Mean age</th>
+<th id="T_36d6c_level0_col2" class="col_heading level0 col2" data-quarto-table-cell-role="th">Median age</th>
+<th id="T_36d6c_level0_col3" class="col_heading level0 col3" data-quarto-table-cell-role="th">SD age</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td id="T_e5457_row0_col0" class="data row0 col0">Customer</td>
-<td id="T_e5457_row0_col1" class="data row0 col1">26.90</td>
-<td id="T_e5457_row0_col2" class="data row0 col2">26.50</td>
-<td id="T_e5457_row0_col3" class="data row0 col3">7.81</td>
+<td id="T_36d6c_row0_col0" class="data row0 col0">Customer</td>
+<td id="T_36d6c_row0_col1" class="data row0 col1">26.90</td>
+<td id="T_36d6c_row0_col2" class="data row0 col2">26.50</td>
+<td id="T_36d6c_row0_col3" class="data row0 col3">7.81</td>
 </tr>
 <tr class="even">
-<td id="T_e5457_row1_col0" class="data row1 col0">Non-customer</td>
-<td id="T_e5457_row1_col1" class="data row1 col1">26.10</td>
-<td id="T_e5457_row1_col2" class="data row1 col2">25.50</td>
-<td id="T_e5457_row1_col3" class="data row1 col3">6.95</td>
+<td id="T_36d6c_row1_col0" class="data row1 col0">Non-customer</td>
+<td id="T_36d6c_row1_col1" class="data row1 col1">26.10</td>
+<td id="T_36d6c_row1_col2" class="data row1 col2">25.50</td>
+<td id="T_36d6c_row1_col3" class="data row1 col3">6.95</td>
 </tr>
 </tbody>
 </table>
@@ -900,24 +900,24 @@ The simple Poisson log-likelihood peaks at the sample mean
 </details>
 <div id="simple-optimizer" class="cell-output cell-output-display">
 <style type="text/css">
-#T_83ed4 caption {
+#T_e57d5 caption {
   caption-side: top;
   text-align: left;
   font-weight: 700;
   font-size: 1rem;
   margin-bottom: 0.4rem;
 }
-#T_83ed4 th {
+#T_e57d5 th {
   background-color: #f3f4f6;
   text-align: left;
   padding: 6px 8px;
   border-bottom: 1px solid #d1d5db;
 }
-#T_83ed4 td {
+#T_e57d5 td {
   padding: 6px 8px;
   border-bottom: 1px solid #e5e7eb;
 }
-#T_83ed4 table {
+#T_e57d5 table {
   border-collapse: collapse;
   width: 100%;
   font-family: Arial, sans-serif;
@@ -925,27 +925,27 @@ The simple Poisson log-likelihood peaks at the sample mean
 }
 </style>
 
-<div id="T_83ed4" class="quarto-float quarto-figure quarto-figure-center anchored" data-quarto-postprocess="true">
+<div id="T_e57d5" class="quarto-float quarto-figure quarto-figure-center anchored" data-quarto-postprocess="true">
 <figure class="quarto-float quarto-float-tbl figure">
-<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="T_83ed4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="T_e57d5-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Table&nbsp;5: Simple Poisson MLE compared with the sample mean
 </figcaption>
-<div aria-describedby="T_83ed4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<table id="T_83ed4" class="caption-top table table-sm table-striped small">
+<div aria-describedby="T_e57d5-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table id="T_e57d5" class="caption-top table table-sm table-striped small">
 <thead>
 <tr class="header">
-<th id="T_83ed4_level0_col0" class="col_heading level0 col0" data-quarto-table-cell-role="th">Method</th>
-<th id="T_83ed4_level0_col1" class="col_heading level0 col1" data-quarto-table-cell-role="th">Lambda hat</th>
+<th id="T_e57d5_level0_col0" class="col_heading level0 col0" data-quarto-table-cell-role="th">Method</th>
+<th id="T_e57d5_level0_col1" class="col_heading level0 col1" data-quarto-table-cell-role="th">Lambda hat</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td id="T_83ed4_row0_col0" class="data row0 col0">scipy.optimize.minimize</td>
-<td id="T_83ed4_row0_col1" class="data row0 col1">3.6847</td>
+<td id="T_e57d5_row0_col0" class="data row0 col0">scipy.optimize.minimize</td>
+<td id="T_e57d5_row0_col1" class="data row0 col1">3.6847</td>
 </tr>
 <tr class="even">
-<td id="T_83ed4_row1_col0" class="data row1 col0">Sample mean</td>
-<td id="T_83ed4_row1_col1" class="data row1 col1">3.6847</td>
+<td id="T_e57d5_row1_col0" class="data row1 col0">Sample mean</td>
+<td id="T_e57d5_row1_col1" class="data row1 col1">3.6847</td>
 </tr>
 </tbody>
 </table>
@@ -1057,24 +1057,24 @@ Y_i \sim \text{Poisson}(\lambda_i),
 </div>
 <div id="poisson-mle-2" class="cell-output cell-output-display">
 <style type="text/css">
-#T_4bd32 caption {
+#T_79a00 caption {
   caption-side: top;
   text-align: left;
   font-weight: 700;
   font-size: 1rem;
   margin-bottom: 0.4rem;
 }
-#T_4bd32 th {
+#T_79a00 th {
   background-color: #f3f4f6;
   text-align: left;
   padding: 6px 8px;
   border-bottom: 1px solid #d1d5db;
 }
-#T_4bd32 td {
+#T_79a00 td {
   padding: 6px 8px;
   border-bottom: 1px solid #e5e7eb;
 }
-#T_4bd32 table {
+#T_79a00 table {
   border-collapse: collapse;
   width: 100%;
   font-family: Arial, sans-serif;
@@ -1082,69 +1082,69 @@ Y_i \sim \text{Poisson}(\lambda_i),
 }
 </style>
 
-<div id="T_4bd32" class="quarto-float quarto-figure quarto-figure-center anchored" data-quarto-postprocess="true">
+<div id="T_79a00" class="quarto-float quarto-figure quarto-figure-center anchored" data-quarto-postprocess="true">
 <figure class="quarto-float quarto-float-tbl figure">
-<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="T_4bd32-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="T_79a00-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Table&nbsp;6: Poisson regression estimates from the hand-coded likelihood
 </figcaption>
-<div aria-describedby="T_4bd32-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<table id="T_4bd32" class="caption-top table table-sm table-striped small">
+<div aria-describedby="T_79a00-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table id="T_79a00" class="caption-top table table-sm table-striped small">
 <thead>
 <tr class="header">
-<th id="T_4bd32_level0_col0" class="col_heading level0 col0" data-quarto-table-cell-role="th">Term</th>
-<th id="T_4bd32_level0_col1" class="col_heading level0 col1" data-quarto-table-cell-role="th">Coefficient</th>
-<th id="T_4bd32_level0_col2" class="col_heading level0 col2" data-quarto-table-cell-role="th">Std. error</th>
-<th id="T_4bd32_level0_col3" class="col_heading level0 col3" data-quarto-table-cell-role="th">Rate ratio</th>
+<th id="T_79a00_level0_col0" class="col_heading level0 col0" data-quarto-table-cell-role="th">Term</th>
+<th id="T_79a00_level0_col1" class="col_heading level0 col1" data-quarto-table-cell-role="th">Coefficient</th>
+<th id="T_79a00_level0_col2" class="col_heading level0 col2" data-quarto-table-cell-role="th">Std. error</th>
+<th id="T_79a00_level0_col3" class="col_heading level0 col3" data-quarto-table-cell-role="th">Rate ratio</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td id="T_4bd32_row0_col0" class="data row0 col0">Intercept</td>
-<td id="T_4bd32_row0_col1" class="data row0 col1">-0.5100</td>
-<td id="T_4bd32_row0_col2" class="data row0 col2">0.1832</td>
-<td id="T_4bd32_row0_col3" class="data row0 col3">0.6005</td>
+<td id="T_79a00_row0_col0" class="data row0 col0">Intercept</td>
+<td id="T_79a00_row0_col1" class="data row0 col1">-0.5100</td>
+<td id="T_79a00_row0_col2" class="data row0 col2">0.1832</td>
+<td id="T_79a00_row0_col3" class="data row0 col3">0.6005</td>
 </tr>
 <tr class="even">
-<td id="T_4bd32_row1_col0" class="data row1 col0">age</td>
-<td id="T_4bd32_row1_col1" class="data row1 col1">0.1487</td>
-<td id="T_4bd32_row1_col2" class="data row1 col2">0.0139</td>
-<td id="T_4bd32_row1_col3" class="data row1 col3">1.1603</td>
+<td id="T_79a00_row1_col0" class="data row1 col0">age</td>
+<td id="T_79a00_row1_col1" class="data row1 col1">0.1487</td>
+<td id="T_79a00_row1_col2" class="data row1 col2">0.0139</td>
+<td id="T_79a00_row1_col3" class="data row1 col3">1.1603</td>
 </tr>
 <tr class="odd">
-<td id="T_4bd32_row2_col0" class="data row2 col0">age_sq</td>
-<td id="T_4bd32_row2_col1" class="data row2 col1">-0.0030</td>
-<td id="T_4bd32_row2_col2" class="data row2 col2">0.0003</td>
-<td id="T_4bd32_row2_col3" class="data row2 col3">0.9970</td>
+<td id="T_79a00_row2_col0" class="data row2 col0">age_sq</td>
+<td id="T_79a00_row2_col1" class="data row2 col1">-0.0030</td>
+<td id="T_79a00_row2_col2" class="data row2 col2">0.0003</td>
+<td id="T_79a00_row2_col3" class="data row2 col3">0.9970</td>
 </tr>
 <tr class="even">
-<td id="T_4bd32_row3_col0" class="data row3 col0">region_Northeast</td>
-<td id="T_4bd32_row3_col1" class="data row3 col1">0.0292</td>
-<td id="T_4bd32_row3_col2" class="data row3 col2">0.0436</td>
-<td id="T_4bd32_row3_col3" class="data row3 col3">1.0296</td>
+<td id="T_79a00_row3_col0" class="data row3 col0">region_Northeast</td>
+<td id="T_79a00_row3_col1" class="data row3 col1">0.0292</td>
+<td id="T_79a00_row3_col2" class="data row3 col2">0.0436</td>
+<td id="T_79a00_row3_col3" class="data row3 col3">1.0296</td>
 </tr>
 <tr class="odd">
-<td id="T_4bd32_row4_col0" class="data row4 col0">region_Northwest</td>
-<td id="T_4bd32_row4_col1" class="data row4 col1">-0.0176</td>
-<td id="T_4bd32_row4_col2" class="data row4 col2">0.0538</td>
-<td id="T_4bd32_row4_col3" class="data row4 col3">0.9826</td>
+<td id="T_79a00_row4_col0" class="data row4 col0">region_Northwest</td>
+<td id="T_79a00_row4_col1" class="data row4 col1">-0.0176</td>
+<td id="T_79a00_row4_col2" class="data row4 col2">0.0538</td>
+<td id="T_79a00_row4_col3" class="data row4 col3">0.9826</td>
 </tr>
 <tr class="even">
-<td id="T_4bd32_row5_col0" class="data row5 col0">region_South</td>
-<td id="T_4bd32_row5_col1" class="data row5 col1">0.0566</td>
-<td id="T_4bd32_row5_col2" class="data row5 col2">0.0527</td>
-<td id="T_4bd32_row5_col3" class="data row5 col3">1.0582</td>
+<td id="T_79a00_row5_col0" class="data row5 col0">region_South</td>
+<td id="T_79a00_row5_col1" class="data row5 col1">0.0566</td>
+<td id="T_79a00_row5_col2" class="data row5 col2">0.0527</td>
+<td id="T_79a00_row5_col3" class="data row5 col3">1.0582</td>
 </tr>
 <tr class="odd">
-<td id="T_4bd32_row6_col0" class="data row6 col0">region_Southwest</td>
-<td id="T_4bd32_row6_col1" class="data row6 col1">0.0506</td>
-<td id="T_4bd32_row6_col2" class="data row6 col2">0.0472</td>
-<td id="T_4bd32_row6_col3" class="data row6 col3">1.0519</td>
+<td id="T_79a00_row6_col0" class="data row6 col0">region_Southwest</td>
+<td id="T_79a00_row6_col1" class="data row6 col1">0.0506</td>
+<td id="T_79a00_row6_col2" class="data row6 col2">0.0472</td>
+<td id="T_79a00_row6_col3" class="data row6 col3">1.0519</td>
 </tr>
 <tr class="even">
-<td id="T_4bd32_row7_col0" class="data row7 col0">iscustomer</td>
-<td id="T_4bd32_row7_col1" class="data row7 col1">0.2076</td>
-<td id="T_4bd32_row7_col2" class="data row7 col2">0.0309</td>
-<td id="T_4bd32_row7_col3" class="data row7 col3">1.2307</td>
+<td id="T_79a00_row7_col0" class="data row7 col0">iscustomer</td>
+<td id="T_79a00_row7_col1" class="data row7 col1">0.2076</td>
+<td id="T_79a00_row7_col2" class="data row7 col2">0.0309</td>
+<td id="T_79a00_row7_col3" class="data row7 col3">1.2307</td>
 </tr>
 </tbody>
 </table>
@@ -1182,24 +1182,24 @@ Table&nbsp;6: Poisson regression estimates from the hand-coded likelihood
 </details>
 <div id="statsmodels-check" class="cell-output cell-output-display">
 <style type="text/css">
-#T_16073 caption {
+#T_a25d4 caption {
   caption-side: top;
   text-align: left;
   font-weight: 700;
   font-size: 1rem;
   margin-bottom: 0.4rem;
 }
-#T_16073 th {
+#T_a25d4 th {
   background-color: #f3f4f6;
   text-align: left;
   padding: 6px 8px;
   border-bottom: 1px solid #d1d5db;
 }
-#T_16073 td {
+#T_a25d4 td {
   padding: 6px 8px;
   border-bottom: 1px solid #e5e7eb;
 }
-#T_16073 table {
+#T_a25d4 table {
   border-collapse: collapse;
   width: 100%;
   font-family: Arial, sans-serif;
@@ -1207,78 +1207,78 @@ Table&nbsp;6: Poisson regression estimates from the hand-coded likelihood
 }
 </style>
 
-<div id="T_16073" class="quarto-float quarto-figure quarto-figure-center anchored" data-quarto-postprocess="true">
+<div id="T_a25d4" class="quarto-float quarto-figure quarto-figure-center anchored" data-quarto-postprocess="true">
 <figure class="quarto-float quarto-float-tbl figure">
-<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="T_16073-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="T_a25d4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Table&nbsp;7: Hand-coded MLE compared with statsmodels GLM
 </figcaption>
-<div aria-describedby="T_16073-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<table id="T_16073" class="caption-top table table-sm table-striped small">
+<div aria-describedby="T_a25d4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table id="T_a25d4" class="caption-top table table-sm table-striped small">
 <thead>
 <tr class="header">
-<th id="T_16073_level0_col0" class="col_heading level0 col0" data-quarto-table-cell-role="th">Term</th>
-<th id="T_16073_level0_col1" class="col_heading level0 col1" data-quarto-table-cell-role="th">MLE coefficient</th>
-<th id="T_16073_level0_col2" class="col_heading level0 col2" data-quarto-table-cell-role="th">MLE std. error</th>
-<th id="T_16073_level0_col3" class="col_heading level0 col3" data-quarto-table-cell-role="th">GLM coefficient</th>
-<th id="T_16073_level0_col4" class="col_heading level0 col4" data-quarto-table-cell-role="th">GLM std. error</th>
+<th id="T_a25d4_level0_col0" class="col_heading level0 col0" data-quarto-table-cell-role="th">Term</th>
+<th id="T_a25d4_level0_col1" class="col_heading level0 col1" data-quarto-table-cell-role="th">MLE coefficient</th>
+<th id="T_a25d4_level0_col2" class="col_heading level0 col2" data-quarto-table-cell-role="th">MLE std. error</th>
+<th id="T_a25d4_level0_col3" class="col_heading level0 col3" data-quarto-table-cell-role="th">GLM coefficient</th>
+<th id="T_a25d4_level0_col4" class="col_heading level0 col4" data-quarto-table-cell-role="th">GLM std. error</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td id="T_16073_row0_col0" class="data row0 col0">Intercept</td>
-<td id="T_16073_row0_col1" class="data row0 col1">-0.5100</td>
-<td id="T_16073_row0_col2" class="data row0 col2">0.1832</td>
-<td id="T_16073_row0_col3" class="data row0 col3">-0.5089</td>
-<td id="T_16073_row0_col4" class="data row0 col4">0.1832</td>
+<td id="T_a25d4_row0_col0" class="data row0 col0">Intercept</td>
+<td id="T_a25d4_row0_col1" class="data row0 col1">-0.5100</td>
+<td id="T_a25d4_row0_col2" class="data row0 col2">0.1832</td>
+<td id="T_a25d4_row0_col3" class="data row0 col3">-0.5089</td>
+<td id="T_a25d4_row0_col4" class="data row0 col4">0.1832</td>
 </tr>
 <tr class="even">
-<td id="T_16073_row1_col0" class="data row1 col0">age</td>
-<td id="T_16073_row1_col1" class="data row1 col1">0.1487</td>
-<td id="T_16073_row1_col2" class="data row1 col2">0.0139</td>
-<td id="T_16073_row1_col3" class="data row1 col3">0.1486</td>
-<td id="T_16073_row1_col4" class="data row1 col4">0.0139</td>
+<td id="T_a25d4_row1_col0" class="data row1 col0">age</td>
+<td id="T_a25d4_row1_col1" class="data row1 col1">0.1487</td>
+<td id="T_a25d4_row1_col2" class="data row1 col2">0.0139</td>
+<td id="T_a25d4_row1_col3" class="data row1 col3">0.1486</td>
+<td id="T_a25d4_row1_col4" class="data row1 col4">0.0139</td>
 </tr>
 <tr class="odd">
-<td id="T_16073_row2_col0" class="data row2 col0">age_sq</td>
-<td id="T_16073_row2_col1" class="data row2 col1">-0.0030</td>
-<td id="T_16073_row2_col2" class="data row2 col2">0.0003</td>
-<td id="T_16073_row2_col3" class="data row2 col3">-0.0030</td>
-<td id="T_16073_row2_col4" class="data row2 col4">0.0003</td>
+<td id="T_a25d4_row2_col0" class="data row2 col0">age_sq</td>
+<td id="T_a25d4_row2_col1" class="data row2 col1">-0.0030</td>
+<td id="T_a25d4_row2_col2" class="data row2 col2">0.0003</td>
+<td id="T_a25d4_row2_col3" class="data row2 col3">-0.0030</td>
+<td id="T_a25d4_row2_col4" class="data row2 col4">0.0003</td>
 </tr>
 <tr class="even">
-<td id="T_16073_row3_col0" class="data row3 col0">region_Northeast</td>
-<td id="T_16073_row3_col1" class="data row3 col1">0.0292</td>
-<td id="T_16073_row3_col2" class="data row3 col2">0.0436</td>
-<td id="T_16073_row3_col3" class="data row3 col3">0.0292</td>
-<td id="T_16073_row3_col4" class="data row3 col4">0.0436</td>
+<td id="T_a25d4_row3_col0" class="data row3 col0">region_Northeast</td>
+<td id="T_a25d4_row3_col1" class="data row3 col1">0.0292</td>
+<td id="T_a25d4_row3_col2" class="data row3 col2">0.0436</td>
+<td id="T_a25d4_row3_col3" class="data row3 col3">0.0292</td>
+<td id="T_a25d4_row3_col4" class="data row3 col4">0.0436</td>
 </tr>
 <tr class="odd">
-<td id="T_16073_row4_col0" class="data row4 col0">region_Northwest</td>
-<td id="T_16073_row4_col1" class="data row4 col1">-0.0176</td>
-<td id="T_16073_row4_col2" class="data row4 col2">0.0538</td>
-<td id="T_16073_row4_col3" class="data row4 col3">-0.0176</td>
-<td id="T_16073_row4_col4" class="data row4 col4">0.0538</td>
+<td id="T_a25d4_row4_col0" class="data row4 col0">region_Northwest</td>
+<td id="T_a25d4_row4_col1" class="data row4 col1">-0.0176</td>
+<td id="T_a25d4_row4_col2" class="data row4 col2">0.0538</td>
+<td id="T_a25d4_row4_col3" class="data row4 col3">-0.0176</td>
+<td id="T_a25d4_row4_col4" class="data row4 col4">0.0538</td>
 </tr>
 <tr class="even">
-<td id="T_16073_row5_col0" class="data row5 col0">region_South</td>
-<td id="T_16073_row5_col1" class="data row5 col1">0.0566</td>
-<td id="T_16073_row5_col2" class="data row5 col2">0.0527</td>
-<td id="T_16073_row5_col3" class="data row5 col3">0.0566</td>
-<td id="T_16073_row5_col4" class="data row5 col4">0.0527</td>
+<td id="T_a25d4_row5_col0" class="data row5 col0">region_South</td>
+<td id="T_a25d4_row5_col1" class="data row5 col1">0.0566</td>
+<td id="T_a25d4_row5_col2" class="data row5 col2">0.0527</td>
+<td id="T_a25d4_row5_col3" class="data row5 col3">0.0566</td>
+<td id="T_a25d4_row5_col4" class="data row5 col4">0.0527</td>
 </tr>
 <tr class="odd">
-<td id="T_16073_row6_col0" class="data row6 col0">region_Southwest</td>
-<td id="T_16073_row6_col1" class="data row6 col1">0.0506</td>
-<td id="T_16073_row6_col2" class="data row6 col2">0.0472</td>
-<td id="T_16073_row6_col3" class="data row6 col3">0.0506</td>
-<td id="T_16073_row6_col4" class="data row6 col4">0.0472</td>
+<td id="T_a25d4_row6_col0" class="data row6 col0">region_Southwest</td>
+<td id="T_a25d4_row6_col1" class="data row6 col1">0.0506</td>
+<td id="T_a25d4_row6_col2" class="data row6 col2">0.0472</td>
+<td id="T_a25d4_row6_col3" class="data row6 col3">0.0506</td>
+<td id="T_a25d4_row6_col4" class="data row6 col4">0.0472</td>
 </tr>
 <tr class="even">
-<td id="T_16073_row7_col0" class="data row7 col0">iscustomer</td>
-<td id="T_16073_row7_col1" class="data row7 col1">0.2076</td>
-<td id="T_16073_row7_col2" class="data row7 col2">0.0309</td>
-<td id="T_16073_row7_col3" class="data row7 col3">0.2076</td>
-<td id="T_16073_row7_col4" class="data row7 col4">0.0309</td>
+<td id="T_a25d4_row7_col0" class="data row7 col0">iscustomer</td>
+<td id="T_a25d4_row7_col1" class="data row7 col1">0.2076</td>
+<td id="T_a25d4_row7_col2" class="data row7 col2">0.0309</td>
+<td id="T_a25d4_row7_col3" class="data row7 col3">0.2076</td>
+<td id="T_a25d4_row7_col4" class="data row7 col4">0.0309</td>
 </tr>
 </tbody>
 </table>
@@ -1323,24 +1323,24 @@ Table&nbsp;7: Hand-coded MLE compared with statsmodels GLM
 </details>
 <div id="counterfactual-effect" class="cell-output cell-output-display">
 <style type="text/css">
-#T_b4f64 caption {
+#T_c561e caption {
   caption-side: top;
   text-align: left;
   font-weight: 700;
   font-size: 1rem;
   margin-bottom: 0.4rem;
 }
-#T_b4f64 th {
+#T_c561e th {
   background-color: #f3f4f6;
   text-align: left;
   padding: 6px 8px;
   border-bottom: 1px solid #d1d5db;
 }
-#T_b4f64 td {
+#T_c561e td {
   padding: 6px 8px;
   border-bottom: 1px solid #e5e7eb;
 }
-#T_b4f64 table {
+#T_c561e table {
   border-collapse: collapse;
   width: 100%;
   font-family: Arial, sans-serif;
@@ -1348,31 +1348,31 @@ Table&nbsp;7: Hand-coded MLE compared with statsmodels GLM
 }
 </style>
 
-<div id="T_b4f64" class="quarto-float quarto-figure quarto-figure-center anchored" data-quarto-postprocess="true">
+<div id="T_c561e" class="quarto-float quarto-figure quarto-figure-center anchored" data-quarto-postprocess="true">
 <figure class="quarto-float quarto-float-tbl figure">
-<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="T_b4f64-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="T_c561e-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Table&nbsp;8: Counterfactual predicted patent counts
 </figcaption>
-<div aria-describedby="T_b4f64-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<table id="T_b4f64" class="caption-top table table-sm table-striped small">
+<div aria-describedby="T_c561e-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table id="T_c561e" class="caption-top table table-sm table-striped small">
 <thead>
 <tr class="header">
-<th id="T_b4f64_level0_col0" class="col_heading level0 col0" data-quarto-table-cell-role="th">Quantity</th>
-<th id="T_b4f64_level0_col1" class="col_heading level0 col1" data-quarto-table-cell-role="th">Estimate</th>
+<th id="T_c561e_level0_col0" class="col_heading level0 col0" data-quarto-table-cell-role="th">Quantity</th>
+<th id="T_c561e_level0_col1" class="col_heading level0 col1" data-quarto-table-cell-role="th">Estimate</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td id="T_b4f64_row0_col0" class="data row0 col0">Average predicted patents if all firms are non-customers</td>
-<td id="T_b4f64_row0_col1" class="data row0 col1">3.436</td>
+<td id="T_c561e_row0_col0" class="data row0 col0">Average predicted patents if all firms are non-customers</td>
+<td id="T_c561e_row0_col1" class="data row0 col1">3.436</td>
 </tr>
 <tr class="even">
-<td id="T_b4f64_row1_col0" class="data row1 col0">Average predicted patents if all firms are customers</td>
-<td id="T_b4f64_row1_col1" class="data row1 col1">4.229</td>
+<td id="T_c561e_row1_col0" class="data row1 col0">Average predicted patents if all firms are customers</td>
+<td id="T_c561e_row1_col1" class="data row1 col1">4.229</td>
 </tr>
 <tr class="odd">
-<td id="T_b4f64_row2_col0" class="data row2 col0">Average difference</td>
-<td id="T_b4f64_row2_col1" class="data row2 col1">0.793</td>
+<td id="T_c561e_row2_col0" class="data row2 col0">Average difference</td>
+<td id="T_c561e_row2_col1" class="data row2 col1">0.793</td>
 </tr>
 </tbody>
 </table>
